@@ -1,0 +1,20 @@
+<html>
+    <title>Bitbyte</title>
+    <body>
+        <h1>Welcome to the Bitbyte server!</h1>
+        <a href="https://www.iiitdmj.ac.in/webix.iiitdmj.ac.in/#/">Official website</a>
+        <div id="perf"></div>
+    </body>
+    <script>
+        (async()=>{
+            const res = await fetch("/ip");
+            const data = await res.json();
+            console.log(data);
+        })()
+        window.onload = function(){
+            var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart; 
+            const textnode = document.createTextNode(loadTime+" ms");
+            document.getElementById("perf").appendChild(textnode);
+        }
+    </script>
+</html>
